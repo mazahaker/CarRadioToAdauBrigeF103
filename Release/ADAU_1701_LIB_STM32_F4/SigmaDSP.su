@@ -1,0 +1,52 @@
+SigmaDSP.cpp:16:1:SigmaDSP::SigmaDSP(I2C_HandleTypeDef*, uint8_t, uint8_t, GPIO_TypeDef*, uint16_t, UART_HandleTypeDef*)	8	static
+SigmaDSP.cpp:57:6:void SigmaDSP::reset()	8	static
+SigmaDSP.cpp:81:6:bool SigmaDSP::ping()	32	static
+cmath:415:5:constexpr typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::pow(_Tp, _Up) [with _Tp = int; _Up = float]	16	static
+SigmaDSP.cpp:998:6:void SigmaDSP::writeRegister(uint16_t, uint8_t, const uint8_t*)	32	dynamic
+SigmaDSP.cpp:935:6:void SigmaDSP::safeload_writeRegister(uint16_t, uint8_t*, bool)	32	static
+SigmaDSP.cpp:1062:6:void SigmaDSP::writeRegisterBlock(uint16_t, uint16_t, const uint8_t*, uint8_t)	48	dynamic
+SigmaDSP.cpp:1114:9:int32_t SigmaDSP::readBack(uint16_t, uint16_t, uint8_t)	40	dynamic
+SigmaDSP.cpp:1178:10:uint32_t SigmaDSP::readRegister(dspRegister, uint8_t)	40	dynamic
+SigmaDSP.cpp:883:6:void SigmaDSP::muteADC(bool)	24	static
+SigmaDSP.cpp:908:6:void SigmaDSP::muteDAC(bool)	24	static
+SigmaDSP.cpp:1226:6:void SigmaDSP::floatToFixed(float, uint8_t*)	8	static
+SigmaDSP.cpp:971:6:void SigmaDSP::safeload_writeRegister(uint16_t, float, bool)	24	static
+SigmaDSP.cpp:159:6:void SigmaDSP::gain(uint16_t, float, uint8_t)	24	static
+SigmaDSP.cpp:179:6:void SigmaDSP::twoChannelGain(uint16_t, int, int)	24	static
+SigmaDSP.cpp:986:6:void SigmaDSP::safeload_writeRegister(uint16_t, double, bool)	16	static
+SigmaDSP.h:174:10:) [with Data1 = float; DataN = {float}]	16	static
+SigmaDSP.cpp:239:6:void SigmaDSP::hardClip(uint16_t, float, float)	16	static
+SigmaDSP.cpp:710:6:void SigmaDSP::stateVariable(uint16_t, float, float)	32	static
+SigmaDSP.h:174:10:) [with Data1 = float; DataN = {float, float}]	16	static
+SigmaDSP.cpp:397:6:void SigmaDSP::EQfirstOrder(uint16_t, firstOrderEQ_t&)	56	static
+SigmaDSP.h:174:10:) [with Data1 = float; DataN = {float, float, float, float}]	24	static
+SigmaDSP.cpp:457:6:void SigmaDSP::EQsecondOrder(uint16_t, secondOrderEQ_t&)	96	static
+SigmaDSP.cpp:635:6:void SigmaDSP::toneControl(uint16_t, toneCtrl_t&)	104	static
+SigmaDSP.cpp:269:6:void SigmaDSP::dcSource(uint16_t, float)	0	static
+SigmaDSP.cpp:222:6:void SigmaDSP::dynamicBass(uint16_t, float)	16	static
+SigmaDSP.cpp:253:6:void SigmaDSP::softClip(uint16_t, float)	24	static
+SigmaDSP.cpp:1252:6:void SigmaDSP::intToFixed(int32_t, uint8_t*)	0	static
+SigmaDSP.cpp:964:6:void SigmaDSP::safeload_writeRegister(uint16_t, int32_t, bool)	24	static
+SigmaDSP.cpp:167:6:void SigmaDSP::gain(uint16_t, int32_t, uint8_t)	24	static
+SigmaDSP.cpp:981:6:void SigmaDSP::safeload_writeRegister(uint16_t, int, bool)	0	static
+SigmaDSP.cpp:133:6:void SigmaDSP::demux(uint16_t, uint8_t, uint8_t)	32	static
+SigmaDSP.cpp:983:6:void SigmaDSP::safeload_writeRegister(uint16_t, uint32_t, bool)	0	static
+SigmaDSP.cpp:984:6:void SigmaDSP::safeload_writeRegister(uint16_t, uint16_t, bool)	0	static
+SigmaDSP.cpp:985:6:void SigmaDSP::safeload_writeRegister(uint16_t, uint8_t, bool)	0	static
+SigmaDSP.cpp:116:6:void SigmaDSP::mux(uint16_t, uint8_t, uint8_t)	0	static
+SigmaDSP.cpp:206:6:void SigmaDSP::volume_slew(uint16_t, float, uint8_t)	16	static
+SigmaDSP.h:174:10:) [with Data1 = long int; DataN = {int}]	16	static
+SigmaDSP.cpp:325:6:void SigmaDSP::sawtoothSource(uint16_t, int32_t)	16	static
+SigmaDSP.cpp:290:6:void SigmaDSP::sineSource(uint16_t, int32_t)	24	static
+SigmaDSP.cpp:307:6:void SigmaDSP::squareSource(uint16_t, int32_t)	0	static
+SigmaDSP.cpp:379:6:void SigmaDSP::audioDelay(uint16_t, float)	16	static
+SigmaDSP.h:174:10:) [with Data1 = float; DataN = {int}]	16	static
+SigmaDSP.cpp:342:6:void SigmaDSP::triangleSource(uint16_t, float)	32	static
+SigmaDSP.cpp:318:6:void SigmaDSP::sawtoothSource(uint16_t, float)	24	static
+SigmaDSP.cpp:283:6:void SigmaDSP::sineSource(uint16_t, float)	24	static
+SigmaDSP.cpp:306:6:void SigmaDSP::squareSource(uint16_t, float)	0	static
+SigmaDSP.cpp:349:6:void SigmaDSP::triangleSource(uint16_t, int32_t)	32	static
+SigmaDSP.cpp:1274:9:int32_t SigmaDSP::floatToInt(float)	8	static
+SigmaDSP.cpp:1295:6:void SigmaDSP::linspace(float, float, float, float*)	32	static
+SigmaDSP.cpp:727:6:void SigmaDSP::compressorRMS(uint16_t, compressor_t&)	472	static
+SigmaDSP.cpp:811:6:void SigmaDSP::compressorPeak(uint16_t, compressor_t&)	464	static

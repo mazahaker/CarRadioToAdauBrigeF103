@@ -1,0 +1,4 @@
+SerialReciver.cpp:3:1:SerialReciver::SerialReciver(UART_HandleTypeDef*)	16	static
+SerialReciver.cpp:5:5:int SerialReciver::getData(char*)	24	static
+SerialReciver.cpp:21:6:void SerialReciver::reciveInterruptHandler()	16	static
+SerialReciver.cpp:34:5:int SerialReciver::getMaxResultLenght()	24	static

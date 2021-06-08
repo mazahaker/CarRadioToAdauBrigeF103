@@ -1,0 +1,8 @@
+Serial.cpp:5:1:Serial::Serial(UART_HandleTypeDef*)	0	static
+Serial.cpp:7:6:void Serial::print(char*)	16	static
+Serial.cpp:12:6:void Serial::println(char*)	16	dynamic
+Serial.cpp:22:6:void Serial::println()	16	static
+Serial.cpp:27:6:void Serial::print(uint32_t)	72	static
+Serial.cpp:34:6:void Serial::print(int)	72	static
+Serial.cpp:41:6:void Serial::print(float)	0	static
+Serial.cpp:49:6:void Serial::print(double)	0	static

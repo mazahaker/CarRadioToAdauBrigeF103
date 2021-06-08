@@ -1,0 +1,5 @@
+PowerManager.cpp:4:1:PowerManager::PowerManager(GPIO_TypeDef*, uint16_t, GPIO_TypeDef*, uint16_t, UART_HandleTypeDef*, void (*)(), void (*)(), void (*)(), void (*)())	8	static
+PowerManager.cpp:69:15:GPIO_PinState PowerManager::checkAcc()	0	static
+PowerManager.cpp:108:6:void PowerManager::uartLog(char*)	16	static
+PowerManager.cpp:73:6:void PowerManager::changeState(PowerManager::PowerState)	8	static
+PowerManager.cpp:26:6:void PowerManager::powerProcessing()	16	static

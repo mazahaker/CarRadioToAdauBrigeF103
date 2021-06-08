@@ -1,0 +1,5 @@
+DSPEEPROM.cpp:13:1:DSPEEPROM::DSPEEPROM(I2C_HandleTypeDef*, uint8_t, uint16_t, int8_t)	24	static
+DSPEEPROM.cpp:42:6:void DSPEEPROM::begin()	16	static
+DSPEEPROM.cpp:63:6:bool DSPEEPROM::ping()	24	static
+DSPEEPROM.cpp:82:9:uint8_t DSPEEPROM::getFirmwareVersion()	144	static
+DSPEEPROM.cpp:132:9:uint8_t DSPEEPROM::writeFirmware(const uint8_t*, uint16_t, int8_t)	24	static

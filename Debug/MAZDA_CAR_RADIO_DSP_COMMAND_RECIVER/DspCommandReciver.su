@@ -1,0 +1,16 @@
+LevelMapping.h:40:5:int getCorrectedLevel(int)	32	static
+DspCommandReciver.cpp:5:1:DspCommandReciver::DspCommandReciver(GPIO_TypeDef*, uint16_t, GPIO_TypeDef*, uint16_t, UART_HandleTypeDef*)	32	static
+DspCommandReciver.cpp:28:6:void DspCommandReciver::readDataOld()	16	static
+DspCommandReciver.cpp:53:6:bool DspCommandReciver::readPackage(int)	16	static
+DspCommandReciver.cpp:91:6:void DspCommandReciver::readPackage()	16	static
+DspCommandReciver.cpp:106:6:void DspCommandReciver::typeDetectAndSave()	16	static
+DspCommandReciver.cpp:135:6:bool DspCommandReciver::tranferDataFromBuffer(int8_t*, bool)	32	static
+DspCommandReciver.cpp:149:6:void DspCommandReciver::printToSerial(UART_HandleTypeDef*)	56	static
+DspCommandReciver.cpp:206:6:void DspCommandReciver::clearData(char*)	24	static
+DspCommandReciver.cpp:212:6:void DspCommandReciver::clearData(int8_t*)	24	static
+DspCommandReciver.cpp:219:8:int8_t DspCommandReciver::getLevel(uint8_t, uint8_t)	40	static
+DspCommandReciver.cpp:322:8:int8_t DspCommandReciver::getAbsoluteLevel(uint8_t)	24	static
+DspCommandReciver.cpp:336:8:int8_t DspCommandReciver::checkElement(int8_t*, int8_t*, int8_t, int8_t)	32	static
+DspCommandReciver.cpp:356:6:bool DspCommandReciver::isChanged()	16	static
+DspCommandReciver.cpp:365:6:bool DspCommandReciver::resetChangedFlag()	16	static
+DspCommandReciver.cpp:369:6:void DspCommandReciver::setChangedFlag()	16	static

@@ -65,8 +65,8 @@ CarRadioToAdauBrigeF103.bin \
 all: CarRadioToAdauBrigeF103.elf secondary-outputs
 
 # Tool invocations
-CarRadioToAdauBrigeF103.elf: $(OBJS) $(USER_OBJS) C:\Users\Admin\Documents\STM32\CarRadioToAdauBrigeF103\STM32F103C8TX_FLASH.ld
-	arm-none-eabi-g++ -o "CarRadioToAdauBrigeF103.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\Admin\Documents\STM32\CarRadioToAdauBrigeF103\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CarRadioToAdauBrigeF103.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+CarRadioToAdauBrigeF103.elf: $(OBJS) $(USER_OBJS) C:\Users\Admin\Documents\GitHub\CarRadioToAdauBrigeF103\STM32F103C8TX_FLASH.ld
+	arm-none-eabi-g++ -o "CarRadioToAdauBrigeF103.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\Admin\Documents\GitHub\CarRadioToAdauBrigeF103\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CarRadioToAdauBrigeF103.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

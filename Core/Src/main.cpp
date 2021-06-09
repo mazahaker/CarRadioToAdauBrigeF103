@@ -18,16 +18,13 @@
  */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
-
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
 #include <Serial.h>
 #include <ExtDeviceCommandReciver.h>
 #include <DspCommandReciver.h>
 #include <SigmaDSP_parameters.h>
 #include <PowerManager.h>
 #include <Android.h>
+#include <main.h>
 #include <SerialReciver.h>
 #include "string.h"
 
@@ -94,23 +91,27 @@ SerialReciver serialReciver(&huart2);
 //отправка данных на экран
 volatile uint32_t sysTime = 0;
 volatile int volumeLastValue = 0;
-volatile bool sendVolumeLastStatus = false;
+volatile bool sendAdauLastStatus = false;
 static int sendTimePeriod = 5000;
 
-//управление каналом включения услилителей
-int amplifierStartTimePeriod = 5000;
-bool amplifierStart = false;
+//управление каналом включения услилителей (и глобальным mute)
+int amplifierStartTimePeriod = 10000;
+bool amplifierReadyToStart = false;
+bool amplifierStarted = false;
 uint32_t amplifierStartTime = 0;
 
 //Управление открытием монитора
 bool monitorOpen = false;
 
+bool muteRadio = false;
+bool muteAndroid = false;
+
 char tmp[200];
 int lastVolumeChanged = 0;
 
 int lastInfoSend = 0;
-char *adauResetCmd = "resetAdau";
-char *stmResetCmd = "resetStm";
+char *adauResetCmd = "rAdau";
+char *stmResetCmd = "rStm";
 
 /* USER CODE END 0 */
 
@@ -165,6 +166,7 @@ int main(void)
 	while (1) {
 		powerManager.powerProcessing();
 		volumeProcessing();
+		muteProcessing();
 		timeProcessing();
 		monitorProcessing();
 		amplifierProcessing();
@@ -553,7 +555,7 @@ void timeProcessing() {
 	if(newSysTime - sysTime > sendTimePeriod && extDeviceCommandReciver.isPlaying()) {
 		sysTime = newSysTime;
 		HAL_NVIC_DisableIRQ(EXTI0_IRQn);
-		extDeviceCommandReciver.sendTime(abs(volumeLastValue), sendVolumeLastStatus ? 1 : 2);
+		extDeviceCommandReciver.sendTime(abs(volumeLastValue), sendAdauLastStatus ? 1 : 2);
 		clearPendingInterrupt();
 		HAL_NVIC_EnableIRQ(EXTI0_IRQn);
 	}
@@ -576,10 +578,21 @@ void volumeProcessing() {
 		serial.print(" ");
 
 		bool connected = dsp.ping();
+		if(!connected) {
+			for(int i = 0; i < 5 && !connected; i++) {
+				serial.println("[adau] reconnect");
+				HAL_I2C_DeInit(&hi2c2);
+				HAL_Delay(20);
+				HAL_I2C_Init(&hi2c2);
+				HAL_Delay(20);
+				connected = dsp.ping();
+			}
+		}
+
 		dspCommandReciver.resetChangedFlag();
 
 		volumeLastValue = level1;
-		sendVolumeLastStatus = connected;
+		sendAdauLastStatus = connected;
 
 		if(!connected) {
 			return;
@@ -591,13 +604,15 @@ void volumeProcessing() {
 }
 
 void amplifierProcessing() {
-	if(amplifierStart) {
+	if(amplifierReadyToStart) {
 		if(HAL_GetTick() - amplifierStartTime > amplifierStartTimePeriod && !HAL_GPIO_ReadPin(AMPLIFIER_RELAY_GPIO_Port, AMPLIFIER_RELAY_Pin)) {
 			HAL_GPIO_WritePin(AMPLIFIER_RELAY_GPIO_Port, AMPLIFIER_RELAY_Pin, GPIO_PIN_SET);
+			amplifierStarted = true;
 			serial.println("[amplifier] power on");
 		}
 	} else if(HAL_GPIO_ReadPin(AMPLIFIER_RELAY_GPIO_Port, AMPLIFIER_RELAY_Pin)) {
 		HAL_GPIO_WritePin(AMPLIFIER_RELAY_GPIO_Port, AMPLIFIER_RELAY_Pin, GPIO_PIN_RESET);
+		amplifierStarted = false;
 		serial.println("[amplifier] power off");
 	}
 }
@@ -615,14 +630,14 @@ void monitorProcessing() {
 }
 
 void accOn() {
-	//через 5 сек вкл усилитель
-	amplifierStart = true;
+	//через 10 сек вкл усилитель и снять mute
+	amplifierReadyToStart = true;
 	amplifierStartTime = HAL_GetTick();
 	monitorOpen = true;
 }
 
 void accOff() {
-	amplifierStart = false;
+	amplifierReadyToStart = false;
 	extDeviceCommandReciver.resetPlayingFlag();
 	android.stop();
 }
@@ -678,6 +693,68 @@ void cmdInfoToSerial() {
 	serial.print(", ");
 	serial.println(stmResetCmd);
 	lastInfoSend = HAL_GetTick();
+}
+
+
+
+void muteProcessing() {
+	// если магнитола устанавливает уровень -94db и ниже, то это == общему mute
+	if (volumeLastValue <= -94 || !amplifierStarted) {
+		muteRadioFunc(true);
+		muteAndroidFunc(true);
+	} else {
+//		режим с отключаемым андроидом
+//		if (extDeviceCommandReciver.isPlaying()) { // Если на чейнджер была послана команда play, то считаем, что звук должен идти с него
+//			muteRadioFunc(true);
+//			muteAndroidFunc(false);
+//		} else if (muteAndroid && muteRadio) {// если пришли сюда, то магнитола только включилась и везде mute, при этом уровень громкости не -94, усилители включены и к чейджеру не обращались
+//			muteRadio = true; // принудительно взведем флаг muteRadio и скажем отключить mute
+//			muteRadioFunc(false);
+//			muteAndroidFunc(true);
+//		} else {
+//			muteRadioFunc(false);
+//			muteAndroidFunc(true);
+//		}
+
+
+		//режим с не отключаемым андроидом
+		//если на чейнджер была команда плей, то выключим радио, иначе включим радио
+		if (extDeviceCommandReciver.isPlaying()) {
+			muteRadioFunc(true);
+		} else {
+			if(muteAndroid && muteRadio) {
+				// если пришли сюда, то магнитола только включилась и везде mute, при этом уровень громкости не -94, усилители включены и к чейджеру не обращались
+				muteRadio = true;
+			}
+			muteRadioFunc(false);
+		}
+		// андроид включим всегда
+		muteAndroidFunc(false);
+	}
+}
+
+void muteRadioFunc(bool mute) {
+	if(!muteRadio && mute) {
+		dsp.mute(MOD_MUTEANALOG_ALG0_MUTENOSLEWALG1MUTE_ADDR, true, MOD_MUTEANALOG_COUNT);
+		muteRadio = true;
+		serial.println("[volume] radio mute on");
+	} else if (muteRadio && !mute) {
+		dsp.mute(MOD_MUTEANALOG_ALG0_MUTENOSLEWALG1MUTE_ADDR, false, MOD_MUTEANALOG_COUNT);
+		muteRadio = false;
+		serial.println("[volume] radio mute off");
+	}
+}
+
+void muteAndroidFunc(bool mute) {
+	if(!muteAndroid && mute) {
+		dsp.mute(MOD_MUTEDIGITAL_ALG0_MUTENOSLEWALG3MUTE_ADDR, true, MOD_MUTEDIGITAL_COUNT);
+		muteAndroid = true;
+		serial.println("[volume] android mute on");
+	} else if (muteAndroid && !mute) {
+		dsp.mute(MOD_MUTEDIGITAL_ALG0_MUTENOSLEWALG3MUTE_ADDR, false, MOD_MUTEDIGITAL_COUNT);
+		muteAndroid = false;
+		serial.println("[volume] android mute off");
+	}
 }
 
 /* USER CODE END 4 */

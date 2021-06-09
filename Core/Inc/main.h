@@ -29,6 +29,7 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f1xx_hal.h"
+#include <stdbool.h>
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -76,6 +77,10 @@ void clearTmp();
 void uartRequestInterrupt();
 void resetAdauCmd();
 void cmdInfoToSerial();
+
+void muteProcessing();
+void muteRadioFunc(bool mute);
+void muteAndroidFunc(bool mute);
 
 /* USER CODE END EFP */
 

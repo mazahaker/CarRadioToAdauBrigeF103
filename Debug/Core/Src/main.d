@@ -1,4 +1,5 @@
-Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
+Core/Src/main.o: ../Core/Src/main.cpp \
+ C:/Users/Admin/Documents/STM32/LIB/SERIAL_LIB_STM32_F4/Serial.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
  ../Core/Inc/stm32f1xx_hal_conf.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h \
@@ -25,16 +26,15 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h \
- C:/Users/Admin/Documents/STM32/LIB/SERIAL_LIB_STM32_F4/Serial.h \
  C:/Users/Admin/Documents/STM32/LIB/MAZDA_EXT_CD_CHANGER_EMULATOR/ExtDeviceCommandReciver.h \
  C:/Users/Admin/Documents/STM32/LIB/MAZDA_CAR_RADIO_DSP_COMMAND_RECIVER/DspCommandReciver.h \
  C:/Users/Admin/Documents/STM32/LIB/ADAU_1701_LIB_STM32_F4/SigmaDSP_parameters.h \
  C:/Users/Admin/Documents/STM32/LIB/ADAU_1701_LIB_STM32_F4/SigmaDSP.h \
  C:/Users/Admin/Documents/STM32/LIB/ADAU_1701_LIB_STM32_F4/parameters.h \
- ../Core/Inc/PowerManager.h ../Core/Inc/Android.h \
+ ../Core/Inc/PowerManager.h ../Core/Inc/Android.h ../Core/Inc/main.h \
  ../Core/Inc/SerialReciver.h
 
-../Core/Inc/main.h:
+C:/Users/Admin/Documents/STM32/LIB/SERIAL_LIB_STM32_F4/Serial.h:
 
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
 
@@ -88,8 +88,6 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
 
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:
 
-C:/Users/Admin/Documents/STM32/LIB/SERIAL_LIB_STM32_F4/Serial.h:
-
 C:/Users/Admin/Documents/STM32/LIB/MAZDA_EXT_CD_CHANGER_EMULATOR/ExtDeviceCommandReciver.h:
 
 C:/Users/Admin/Documents/STM32/LIB/MAZDA_CAR_RADIO_DSP_COMMAND_RECIVER/DspCommandReciver.h:
@@ -103,5 +101,7 @@ C:/Users/Admin/Documents/STM32/LIB/ADAU_1701_LIB_STM32_F4/parameters.h:
 ../Core/Inc/PowerManager.h:
 
 ../Core/Inc/Android.h:
+
+../Core/Inc/main.h:
 
 ../Core/Inc/SerialReciver.h:

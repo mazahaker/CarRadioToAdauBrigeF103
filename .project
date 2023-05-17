@@ -31,26 +31,4 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>ADAU_1701_LIB_STM32_F4</name>
-			<type>2</type>
-			<location>C:/Users/Admin/Documents/STM32/LIB/ADAU_1701_LIB_STM32_F4</location>
-		</link>
-		<link>
-			<name>MAZDA_CAR_RADIO_DSP_COMMAND_RECIVER</name>
-			<type>2</type>
-			<location>C:/Users/Admin/Documents/STM32/LIB/MAZDA_CAR_RADIO_DSP_COMMAND_RECIVER</location>
-		</link>
-		<link>
-			<name>MAZDA_EXT_CD_CHANGER_EMULATOR</name>
-			<type>2</type>
-			<location>C:/Users/Admin/Documents/STM32/LIB/MAZDA_EXT_CD_CHANGER_EMULATOR</location>
-		</link>
-		<link>
-			<name>SERIAL_LIB_STM32_F4</name>
-			<type>2</type>
-			<location>C:/Users/Admin/Documents/STM32/LIB/SERIAL_LIB_STM32_F4</location>
-		</link>
-	</linkedResources>
 </projectDescription>

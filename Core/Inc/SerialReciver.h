@@ -1,13 +1,14 @@
 #include "stm32f1xx_hal.h"
-#define BUFFER_SIZE 200
+#define BUFFER_SIZE 50
 
 class SerialReciver
 {
 public:
 	SerialReciver(UART_HandleTypeDef *uart);
-	int getData(char *data);
+	int getData(char *data, int maxDataSize);
 	void reciveInterruptHandler();
 	int getMaxResultLenght();
+	bool isEmpty();
 
   private:
     UART_HandleTypeDef *uart;

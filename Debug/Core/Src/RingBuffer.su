@@ -1,0 +1,7 @@
+../Core/Src/RingBuffer.cpp:4:1:RingBuffer::RingBuffer()	16	static
+../Core/Src/RingBuffer.cpp:7:6:bool RingBuffer::add(const char*)	32	static
+../Core/Src/RingBuffer.cpp:44:5:int RingBuffer::getReadIdx()	24	static
+../Core/Src/RingBuffer.cpp:61:7:char* RingBuffer::get()	24	static
+../Core/Src/RingBuffer.cpp:69:6:bool RingBuffer::isEmpty()	16	static
+../Core/Src/RingBuffer.cpp:73:6:void RingBuffer::enableWrite(bool)	16	static
+../Core/Src/RingBuffer.cpp:77:6:bool RingBuffer::isWriteEnabled()	16	static

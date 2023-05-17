@@ -62,10 +62,10 @@ void Android::processComand(char *command) {
 }
 
 void Android::ping() {
-	HAL_Delay(10);
-	HAL_UART_Transmit(uartAndroid, (uint8_t *)"<MEDIA:PING>\n", 13, 2);
-	HAL_Delay(30);
-	HAL_UART_Transmit(uartLog, (uint8_t *)"[android] ping\n", 15, 2);
+//	HAL_Delay(10);
+//	HAL_UART_Transmit(uartAndroid, (uint8_t *)"<MEDIA:PING>\n", 13, 2);
+//	HAL_Delay(30);
+//	HAL_UART_Transmit(uartLog, (uint8_t *)"[android] ping\n", 15, 2);
 }
 
 bool Android::tryPong() {

@@ -29,11 +29,10 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f1xx_hal.h"
-#include <stdbool.h>
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <stdbool.h>
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -55,6 +54,9 @@ extern "C" {
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
+void addToBuffer(char *str);
+int getBufferReadIdx();
+
 void dataRequestInterrupt();
 void mBusRequestInterrupt();
 void volumeProcessing();
@@ -73,14 +75,20 @@ void accOff();
 void waitOff();
 void off();
 
-void clearTmp();
 void uartRequestInterrupt();
 void resetAdauCmd();
 void cmdInfoToSerial();
+void cmdInfoToBuffer();
 
 void muteProcessing();
 void muteRadioFunc(bool mute);
 void muteAndroidFunc(bool mute);
+void processI2C();
+void processUART();
+void executeInputCmd();
+
+void setupReadFlagGPIO(bool enable);
+void checkConnection();
 
 /* USER CODE END EFP */
 
@@ -93,10 +101,6 @@ void muteAndroidFunc(bool mute);
 #define ADAU_RESET_GPIO_Port GPIOA
 #define AC_Pin GPIO_PIN_1
 #define AC_GPIO_Port GPIOA
-#define UART_TX_Pin GPIO_PIN_2
-#define UART_TX_GPIO_Port GPIOA
-#define UART_RX_Pin GPIO_PIN_3
-#define UART_RX_GPIO_Port GPIOA
 #define POWER_RELAY_Pin GPIO_PIN_4
 #define POWER_RELAY_GPIO_Port GPIOA
 #define AMPLIFIER_RELAY_Pin GPIO_PIN_5
@@ -115,6 +119,8 @@ void muteAndroidFunc(bool mute);
 #define ADAU_SCL_GPIO_Port GPIOB
 #define ADAU_SDA_Pin GPIO_PIN_11
 #define ADAU_SDA_GPIO_Port GPIOB
+#define I2C_EVENT_Pin GPIO_PIN_8
+#define I2C_EVENT_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
@@ -124,5 +130,3 @@ void muteAndroidFunc(bool mute);
 #endif
 
 #endif /* __MAIN_H */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

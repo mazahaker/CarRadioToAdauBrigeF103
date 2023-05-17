@@ -12,7 +12,8 @@ public:
 			void (*_accOnCallback)(),
 			void (*_accOffCallback)(),
 			void (*_waitOffCallback)(),
-			void (*_offCallback)());
+			void (*_offCallback)(),
+			void (*_addMessage)(char* msg));
 
 	void powerProcessing();
 
@@ -23,10 +24,13 @@ private:
 	uint16_t accPin;
 	UART_HandleTypeDef *uart;
 
+	int time = 0;
+
 	void (*accOnCallback)();
 	void (*accOffCallback)();
 	void (*waitOffCallback)();
 	void (*offCallback)();
+	void (*addMessage)(char* msg);
 
 	enum PowerState {
 		ACC_ON,
@@ -38,15 +42,13 @@ private:
 
 	//in ms
 	int waitAccTime;
-	int maxAccWaitTime = 15000;
+	int maxAccWaitTime = 10000;
 
 	int waitPowerOffTime;
-	int maxPowerOffTime = 10000;
+	int maxPowerOffTime = 5000;
 
 	bool stateChanged = false;
 
 	GPIO_PinState checkAcc();
 	void changeState(PowerState newState);
-	void uartLog(char *str);
-
 };

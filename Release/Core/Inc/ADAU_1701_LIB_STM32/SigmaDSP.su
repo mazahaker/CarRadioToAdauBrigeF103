@@ -1,0 +1,53 @@
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:16:1:SigmaDSP::SigmaDSP(I2C_HandleTypeDef*, uint8_t, uint8_t, GPIO_TypeDef*, uint16_t, UART_HandleTypeDef*, void (*)(char*))	12	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:52:6:void SigmaDSP::reset()	8	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:79:6:bool SigmaDSP::ping()	32	static
+c:\st\stm32cubeide_1.9.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.0.202111181127\tools\arm-none-eabi\include\c++\10.3.1\cmath:415:5:constexpr typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::pow(_Tp, _Up) [with _Tp = int; _Up = float]	16	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:977:6:void SigmaDSP::writeRegister(uint16_t, uint8_t, const uint8_t*)	32	dynamic
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:908:6:void SigmaDSP::safeload_writeRegister(uint16_t, uint8_t*, bool)	32	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:1037:6:void SigmaDSP::writeRegisterBlock(uint16_t, uint16_t, const uint8_t*, uint8_t)	48	dynamic
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:1086:9:int32_t SigmaDSP::readBack(uint16_t, uint16_t, uint8_t)	40	dynamic
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:1148:10:uint32_t SigmaDSP::readRegister(dspRegister, uint8_t)	40	dynamic
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:860:6:void SigmaDSP::muteADC(bool)	24	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:883:6:void SigmaDSP::muteDAC(bool)	24	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:1194:6:void SigmaDSP::floatToFixed(float, uint8_t*)	8	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:942:6:void SigmaDSP::safeload_writeRegister(uint16_t, float, bool)	24	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:178:6:void SigmaDSP::gain(uint16_t, float, uint8_t)	24	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:204:6:void SigmaDSP::twoChannelGain(uint16_t, int, int)	24	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:964:6:void SigmaDSP::safeload_writeRegister(uint16_t, double, bool)	16	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.h:176:10:) [with Data1 = float; DataN = {float}]	16	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.h:176:10:) [with Data1 = float; DataN = {float, float}]	16	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:403:6:void SigmaDSP::EQfirstOrder(uint16_t, firstOrderEQ_t&)	56	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.h:176:10:) [with Data1 = float; DataN = {float, float, float, float}]	24	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:629:6:void SigmaDSP::toneControl(uint16_t, toneCtrl_t&)	104	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:457:6:void SigmaDSP::EQsecondOrder(uint16_t, secondOrderEQ_t&)	96	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:699:6:void SigmaDSP::stateVariable(uint16_t, float, float)	32	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:259:6:void SigmaDSP::hardClip(uint16_t, float, float)	16	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:244:6:void SigmaDSP::dynamicBass(uint16_t, float)	16	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:285:6:void SigmaDSP::dcSource(uint16_t, float)	0	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:271:6:void SigmaDSP::softClip(uint16_t, float)	24	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:1218:6:void SigmaDSP::intToFixed(int32_t, uint8_t*)	0	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:936:6:void SigmaDSP::safeload_writeRegister(uint16_t, int32_t, bool)	24	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:185:6:void SigmaDSP::gain(uint16_t, int32_t, uint8_t)	24	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:195:6:void SigmaDSP::mute(uint16_t, bool, uint8_t)	32	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:951:6:void SigmaDSP::safeload_writeRegister(uint16_t, int, bool)	0	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:154:6:void SigmaDSP::demux(uint16_t, uint8_t, uint8_t)	32	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:955:6:void SigmaDSP::safeload_writeRegister(uint16_t, uint32_t, bool)	0	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:958:6:void SigmaDSP::safeload_writeRegister(uint16_t, uint16_t, bool)	0	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:961:6:void SigmaDSP::safeload_writeRegister(uint16_t, uint8_t, bool)	0	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.h:176:10:) [with Data1 = float; DataN = {int}]	16	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:332:6:void SigmaDSP::sawtoothSource(uint16_t, float)	16	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:230:6:void SigmaDSP::volume_slew(uint16_t, float, uint8_t)	16	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:353:6:void SigmaDSP::triangleSource(uint16_t, float)	24	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:139:6:void SigmaDSP::mux(uint16_t, uint8_t, uint8_t)	0	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:387:6:void SigmaDSP::audioDelay(uint16_t, float)	16	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.h:176:10:) [with Data1 = long int; DataN = {int}]	16	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:338:6:void SigmaDSP::sawtoothSource(uint16_t, int32_t)	16	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:359:6:void SigmaDSP::triangleSource(uint16_t, int32_t)	24	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:297:6:void SigmaDSP::sineSource(uint16_t, float)	24	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:317:6:void SigmaDSP::squareSource(uint16_t, float)	0	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:303:6:void SigmaDSP::sineSource(uint16_t, int32_t)	24	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:320:6:void SigmaDSP::squareSource(uint16_t, int32_t)	0	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:1238:9:int32_t SigmaDSP::floatToInt(float)	8	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:1256:6:void SigmaDSP::linspace(float, float, float, float*)	32	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:714:6:void SigmaDSP::compressorRMS(uint16_t, compressor_t&)	496	static
+..\Core\Inc\ADAU_1701_LIB_STM32\SigmaDSP.cpp:793:6:void SigmaDSP::compressorPeak(uint16_t, compressor_t&)	480	static

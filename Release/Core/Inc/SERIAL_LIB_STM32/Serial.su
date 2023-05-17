@@ -1,0 +1,9 @@
+..\Core\Inc\SERIAL_LIB_STM32\Serial.cpp:5:1:Serial::Serial(UART_HandleTypeDef*)	0	static
+..\Core\Inc\SERIAL_LIB_STM32\Serial.cpp:7:6:void Serial::print(char*)	16	static
+..\Core\Inc\SERIAL_LIB_STM32\Serial.cpp:11:6:void Serial::print(uint8_t*, int)	0	static
+..\Core\Inc\SERIAL_LIB_STM32\Serial.cpp:15:6:void Serial::println(char*)	24	dynamic
+..\Core\Inc\SERIAL_LIB_STM32\Serial.cpp:25:6:void Serial::println()	16	static
+..\Core\Inc\SERIAL_LIB_STM32\Serial.cpp:30:6:void Serial::print(uint32_t)	72	static
+..\Core\Inc\SERIAL_LIB_STM32\Serial.cpp:37:6:void Serial::print(int)	72	static
+..\Core\Inc\SERIAL_LIB_STM32\Serial.cpp:44:6:void Serial::print(float)	0	static
+..\Core\Inc\SERIAL_LIB_STM32\Serial.cpp:52:6:void Serial::print(double)	0	static

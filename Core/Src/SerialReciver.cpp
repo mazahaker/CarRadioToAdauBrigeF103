@@ -1,15 +1,23 @@
 #include "SerialReciver.h"
 
+#define WAIT_NEXT_BYTE_UART_TIME 10
+
 SerialReciver::SerialReciver(UART_HandleTypeDef *_uart): uart(_uart) {}
 
-int SerialReciver::getData(char *data) {
-	if(!hasData || HAL_GetTick() - lastReciveTime < 10) {
+bool SerialReciver::isEmpty() {
+	return !hasData || HAL_GetTick() - lastReciveTime < WAIT_NEXT_BYTE_UART_TIME;
+}
+
+int SerialReciver::getData(char *data, int maxDataSize) {
+	if(!hasData || HAL_GetTick() - lastReciveTime < WAIT_NEXT_BYTE_UART_TIME) {
 		return 0;
 	}
 
 	int size = idx == 0 ? BUFFER_SIZE : idx;
 	for(int i = 0; i < size; i++) {
-		data[i] = buffer[i];
+		if (i < maxDataSize || maxDataSize == -1) {
+			data[i] = buffer[i];
+		}
 		buffer[i] = '\0';
 	}
 
